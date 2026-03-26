@@ -9,8 +9,10 @@ function Carousel() {
   const [gsap, setGsap] = useState(null)
   const [isMobile, setIsMobile] = useState(false)
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [resizeKey, setResizeKey] = useState(0)
   const initRef = useRef(false)
   const autoPlayRef = useRef(null)
+  const resizeTimerRef = useRef(null)
 
   // Detect mobile
   useEffect(() => {
@@ -30,6 +32,22 @@ function Carousel() {
       })
     }
     initRef.current = false
+  }, [isMobile])
+
+  // Debounced resize → re-run GSAP init with fresh dimensions (fixes black spots on resize)
+  useEffect(() => {
+    if (isMobile) return
+    const handleResize = () => {
+      clearTimeout(resizeTimerRef.current)
+      resizeTimerRef.current = setTimeout(() => {
+        setResizeKey(k => k + 1)
+      }, 350)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      clearTimeout(resizeTimerRef.current)
+    }
   }, [isMobile])
 
   // Mobile auto-play
@@ -58,9 +76,12 @@ function Carousel() {
     const ease = "sine.inOut"
 
     const { innerHeight: height, innerWidth: width } = window
+    // < 1400px: only 1 thumbnail fits (pushed to right edge), no text overlap
+    const isTablet   = width < 1400
     const carouselHeight = height * 0.7
     const offsetTop  = carouselHeight - 280
-    const offsetLeft = width - 830
+    const offsetLeft = isTablet ? width - 280 : width - 830
+    const progressWidth = isTablet ? 80 : 500
     const cardWidth  = 200
     const cardHeight = 240
     const gap        = 40
@@ -123,7 +144,7 @@ function Carousel() {
       gsap.set(detailsInactive,        { opacity: 0, zIndex: 12 })
       resetDetailsInactive(detailsInactive)
 
-      gsap.set(".carousel-progress-foreground", { width: 500 * (1 / order.length) * (active + 1) })
+      gsap.set(".carousel-progress-foreground", { width: progressWidth * (1 / order.length) * (active + 1) })
 
       rest.forEach((i, index) => {
         gsap.set(getCard(i), {
@@ -183,7 +204,7 @@ function Carousel() {
         gsap.to(getCardContent(active), { y: offsetTop + cardHeight - 10, opacity: 0, duration: 0.3, ease })
         gsap.to(getSliderItem(active),  { x: 0, ease })
         gsap.to(getSliderItem(prv),     { x: -numberSize, ease })
-        gsap.to(".carousel-progress-foreground", { width: 500 * (1 / order.length) * (active + 1), ease })
+        gsap.to(".carousel-progress-foreground", { width: progressWidth * (1 / order.length) * (active + 1), ease })
 
         gsap.to(getCard(active), {
           x: 0, y: 0, ease,
@@ -241,7 +262,7 @@ function Carousel() {
         gsap.to(getCardContent(active), { y: offsetTop + cardHeight - 10, opacity: 0, duration: 0.3, ease })
         gsap.to(getSliderItem(active),  { x: 0, ease })
         gsap.to(getSliderItem(prvBig),  { x: -numberSize, ease })
-        gsap.to(".carousel-progress-foreground", { width: 500 * (1 / order.length) * (active + 1), ease })
+        gsap.to(".carousel-progress-foreground", { width: progressWidth * (1 / order.length) * (active + 1), ease })
 
         gsap.to(getCard(active), {
           x: 0, y: 0, ease,
@@ -377,7 +398,7 @@ function Carousel() {
       rightBtn?.removeEventListener('click', handleRightClick)
       leftBtn?.removeEventListener('click',  handleLeftClick)
     }
-  }, [gsap, isMobile])
+  }, [gsap, isMobile, resizeKey])
 
   // ── MOBILE RENDERING ─────────────────────────────────────────────────────
   if (isMobile) {

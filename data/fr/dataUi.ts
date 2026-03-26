@@ -95,4 +95,71 @@ export const uiContent = {
   becomeProvider: {
     verifiedBadge: 'VÉRIFIÉ',
   },
+
+  // ── Prestataires page ───────────────────────────────────
+  prestataires: {
+    hero: {
+      subtitle: 'Annuaire des prestataires',
+      title: 'Trouvez le prestataire parfait pour votre événement',
+      description: 'Des centaines de professionnels vérifiés, prêts à faire de votre événement un moment inoubliable.',
+      searchPlaceholder: 'Rechercher un prestataire, une ville…',
+      searchButton: 'Rechercher',
+    },
+    filters: {
+      title: 'Filtres',
+      clearAll: 'Tout effacer',
+      category: 'Catégorie',
+      eventType: 'Type d\'événement',
+      budget: 'Budget',
+      minRating: 'Note minimale',
+      availability: 'Disponibilité',
+      proximity: 'Proximité',
+      budgetOptions: {
+        under500: 'Moins de 500$',
+        over3000: 'Plus de 3000$',
+      },
+      availabilityOptions: {
+        available: 'Disponible',
+        limited: 'Limité',
+        complet: 'Complet',
+      },
+      proximityOptions: {
+        locating: 'Localisation…',
+        error: 'Localisation refusée',
+        label: (km: number) => `≤ ${km} km`,
+      },
+      proximityKmOptions: [10, 25, 50, 100],
+    },
+    results: {
+      sort: {
+        label: 'Trier',
+        rating: 'Mieux notés',
+        priceLow: 'Prix croissant',
+        priceHigh: 'Prix décroissant',
+        newest: 'Plus récents',
+      },
+      searchPlaceholder: 'Rechercher…',
+      filtersButton: 'Filtres',
+      count: (n: number) => `${n} prestataire${n !== 1 ? 's' : ''} trouvé${n !== 1 ? 's' : ''}`,
+    },
+    card: {
+      featured: 'Vedette',
+      verified: 'Vérifié',
+      from: 'À partir de',
+      viewProfile: 'Voir le profil',
+      available: '✓ Disponible',
+      limited: '⚠ Disponibilité limitée',
+      fullyBooked: '✗ Complet',
+    },
+    empty: {
+      title: 'Aucun prestataire trouvé',
+      description: 'Essayez d\'élargir votre recherche en ajustant ou supprimant certains filtres.',
+      clearButton: 'Effacer tous les filtres',
+    },
+    pagination: {
+      prev: 'Précédent',
+      next: 'Suivant',
+      of: 'sur',
+    },
+  },
 };

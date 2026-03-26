@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
+import DynamicIcon from '@/components/ui/DynamicIcon';
 
 export default function WhyStarlinQ() {
   const { content } = useLanguage();
@@ -51,7 +52,7 @@ export default function WhyStarlinQ() {
                       : { background: 'rgba(var(--primary-color-rgb), 0.1)', border: '2px solid rgba(var(--primary-color-rgb), 0.2)' }
                   }
                 >
-                  {adv.icon}
+                  <DynamicIcon value={adv.icon} size={24} />
                 </div>
                 {/* Title */}
                 <h3

@@ -9,12 +9,12 @@ export const siteContent = {
   // ── Header / Navigation ─────────────────────────────────
   header: {
     logo: 'StarlinQ',
-    nav: {
-      providers: 'Nos prestataires',
-      howItWorks: 'Comment ça marche',
-      testimonials: 'Témoignages',
-      contact: 'Contact',
-    },
+    nav: [
+      { label: 'Nos prestataires', href: '/prestataires' },
+      { label: 'Comment ça marche', href: '#howItWorks' },
+      { label: 'Témoignages', href: '#testimonials' },
+      { label: 'Contact', href: '#contact' },
+    ],
   },
 
   // ── Hero Carousel ───────────────────────────────────────
@@ -70,6 +70,10 @@ export const siteContent = {
   hero: {
     title: 'Connectez-vous aux meilleurs prestataires du Québec',
     description: 'StarlinQ simplifie l\'organisation de vos événements en vous mettant en contact avec des professionnels vérifiés et passionnés. Mariage, festival, corporatif ou fête privée — nous avons les experts qu\'il vous faut.',
+    cta: {
+      primary: 'Trouver un prestataire',
+      secondary: 'En savoir plus',
+    },
     images: [
       {
         src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&h=400&fit=crop',
@@ -404,6 +408,7 @@ export const siteContent = {
           'Parcourez les catégories ou utilisez la recherche pour trouver le prestataire parfait. Filtrez par localisation, budget et disponibilité.',
         image: '/images/choice.png',
         imageAlt: 'Chercher un prestataire',
+        icon: 'fa:FaMagnifyingGlass',
         reverse: false,
       },
       {
@@ -413,6 +418,7 @@ export const siteContent = {
           'Consultez les profils détaillés, portfolios, tarifs et avis clients authentiques. Comparez plusieurs prestataires côte à côte.',
         image: '/images/compare.png',
         imageAlt: 'Comparer les prestataires',
+        icon: 'fa:FaChartBar',
         reverse: true,
       },
       {
@@ -422,6 +428,7 @@ export const siteContent = {
           'Contactez directement ou réservez en ligne en toute sécurité. Paiement protégé et support client à chaque étape.',
         image: '/images/book.png',
         imageAlt: 'Réserver un prestataire',
+        icon: 'fa:FaCircleCheck',
         reverse: false,
       },
     ],
@@ -455,7 +462,13 @@ export const siteContent = {
       primary: 'Créer mon profil gratuitement',
       secondary: 'En savoir plus',
     },
-    image: 'https://images.unsplash.com/photo-1553775282-20af80779df7?w=800&h=800&fit=crop',
+    images: {
+      main1:     'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&h=500&fit=crop',
+      main2:     'https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=600&h=700&fit=crop',
+      floating1: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=300&h=300&fit=crop',
+      floating2: 'https://images.unsplash.com/photo-1530023367847-a683933f4172?w=400&h=300&fit=crop',
+      offerBg:   'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=600&fit=crop',
+    },
   },
 
   // ── Contact Section ─────────────────────────────────────

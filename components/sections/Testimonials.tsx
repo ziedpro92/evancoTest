@@ -23,7 +23,7 @@ function TestimonialCard({ testimonial }: { testimonial: any }) {
             <p className="testimonial-marquee-card__name">{testimonial.name}</p>
             <p className="testimonial-marquee-card__role">{testimonial.role}</p>
           </div>
-          <span className="testimonial-marquee-card__event">{testimonial.event}</span>
+          {/* <span className="testimonial-marquee-card__event">{testimonial.event}</span> */}
         </div>
       </div>
     </div>

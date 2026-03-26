@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
+import DynamicIcon from '@/components/ui/DynamicIcon';
 
 export default function About() {
   const { content } = useLanguage();
@@ -53,7 +54,7 @@ export default function About() {
                     initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.4 + i * 0.1 }}
                   >
-                    <div className="text-3xl mb-2">{pillar.icon}</div>
+                    <div className="text-3xl mb-2 flex justify-center"><DynamicIcon value={pillar.icon} size={30} /></div>
                     <div className="font-semibold text-gray-900 text-sm mb-1">{pillar.title}</div>
                     <div className="text-xs text-gray-500 leading-relaxed">{pillar.description}</div>
                   </motion.div>

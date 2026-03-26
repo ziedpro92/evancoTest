@@ -27,6 +27,24 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
+      <head>
+        {/* Restore saved theme color before first paint — prevents flash of default color */}
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function(){try{
+            var c=localStorage.getItem('primary-color');
+            if(!c)return;
+            var r=/^#?([a-f\\d]{2})([a-f\\d]{2})([a-f\\d]{2})$/i.exec(c);
+            if(!r)return;
+            var rgb=parseInt(r[1],16)+', '+parseInt(r[2],16)+', '+parseInt(r[3],16);
+            var d=function(x){return Math.max(0,Math.min(255,parseInt(x,16)-20)).toString(16).padStart(2,'0');};
+            var dark='#'+d(r[1])+d(r[2])+d(r[3]);
+            var s=document.documentElement.style;
+            s.setProperty('--primary-color',c);
+            s.setProperty('--primary-color-dark',dark);
+            s.setProperty('--primary-color-rgb',rgb);
+          }catch(e){}})();
+        `}} />
+      </head>
       <body className={`${inter.className} ${cormorant.variable}`}>
         <LanguageProvider>
           {children}

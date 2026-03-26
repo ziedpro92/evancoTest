@@ -95,4 +95,71 @@ export const uiContent = {
   becomeProvider: {
     verifiedBadge: 'VERIFIED',
   },
+
+  // ── Prestataires page ───────────────────────────────────
+  prestataires: {
+    hero: {
+      subtitle: 'Provider Directory',
+      title: 'Find the perfect provider for your event',
+      description: 'Hundreds of verified professionals, ready to make your event an unforgettable moment.',
+      searchPlaceholder: 'Search a provider, a city…',
+      searchButton: 'Search',
+    },
+    filters: {
+      title: 'Filters',
+      clearAll: 'Clear all',
+      category: 'Category',
+      eventType: 'Event Type',
+      budget: 'Budget',
+      minRating: 'Minimum Rating',
+      availability: 'Availability',
+      proximity: 'Proximity',
+      budgetOptions: {
+        under500: 'Under $500',
+        over3000: 'Over $3,000',
+      },
+      availabilityOptions: {
+        available: 'Available',
+        limited: 'Limited',
+        complet: 'Fully booked',
+      },
+      proximityOptions: {
+        locating: 'Locating…',
+        error: 'Location denied',
+        label: (km: number) => `≤ ${km} km`,
+      },
+      proximityKmOptions: [10, 25, 50, 100],
+    },
+    results: {
+      sort: {
+        label: 'Sort',
+        rating: 'Highest rated',
+        priceLow: 'Price: Low to High',
+        priceHigh: 'Price: High to Low',
+        newest: 'Newest first',
+      },
+      searchPlaceholder: 'Search…',
+      filtersButton: 'Filters',
+      count: (n: number) => `${n} provider${n !== 1 ? 's' : ''} found`,
+    },
+    card: {
+      featured: 'Featured',
+      verified: 'Verified',
+      from: 'From',
+      viewProfile: 'View profile',
+      available: '✓ Available',
+      limited: '⚠ Limited availability',
+      fullyBooked: '✗ Fully booked',
+    },
+    empty: {
+      title: 'No providers found',
+      description: 'Try broadening your search by adjusting or removing some filters.',
+      clearButton: 'Clear all filters',
+    },
+    pagination: {
+      prev: 'Previous',
+      next: 'Next',
+      of: 'of',
+    },
+  },
 };

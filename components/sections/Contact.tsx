@@ -61,7 +61,7 @@ export default function Contact() {
           </motion.div>
 
           <motion.div
-            className="hidden md:block relative h-full min-h-[500px] lg:min-h-[600px]"
+            className="hidden lg:block relative h-full min-h-[500px] lg:min-h-[600px]"
             initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}
           >

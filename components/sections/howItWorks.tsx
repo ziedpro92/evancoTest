@@ -2,14 +2,12 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Play, Search, BarChart2, CheckCircle } from "lucide-react";
+import { Play } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-
-const stepIcons = [Search, BarChart2, CheckCircle];
+import DynamicIcon from "@/components/ui/DynamicIcon";
 
 const StepRow = ({ step, index }: { step: any; index: number }) => {
   const reverse = index % 2 === 0;
-  const Icon = stepIcons[index] || Search;
 
   const illustrationEl = (
     <motion.div
@@ -41,12 +39,12 @@ const StepRow = ({ step, index }: { step: any; index: number }) => {
         className="absolute select-none pointer-events-none font-bold leading-none"
         style={{ fontSize: "clamp(160px, 20vw, 240px)", color: "rgba(var(--primary-color-rgb),0.12)", top: "-0.1em", left: "-0.05em", zIndex: 0, lineHeight: 1, letterSpacing: "-0.04em" }}
       >
-        {step.id}
+        {index + 1}
       </span>
       <div className="relative z-10 flex flex-col p-6 md:p-8">
         <div className="flex justify-center mb-6">
-          <div style={{ width: "68px", height: "68px", borderRadius: "50%", background: "rgba(var(--primary-color-rgb),0.10)", border: "2px solid rgba(var(--primary-color-rgb),0.28)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <Icon style={{ width: "32px", height: "32px", color: "var(--primary-color)" }} />
+          <div style={{ width: "68px", height: "68px", borderRadius: "50%", background: "rgba(var(--primary-color-rgb),0.10)", border: "2px solid rgba(var(--primary-color-rgb),0.28)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary-color)" }}>
+            <DynamicIcon value={step.icon} size={32} />
           </div>
         </div>
         <h3 className="text-3xl md:text-4xl font-serif text-gray-900 text-center mb-4">{step.title}</h3>
@@ -56,7 +54,7 @@ const StepRow = ({ step, index }: { step: any; index: number }) => {
   );
 
   return (
-    <div className={`flex flex-col md:gap-16 items-center py-8 gap-8 ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+    <div className={`flex flex-col md:gap-16 items-center py-8 gap-8 ${!reverse ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
       {illustrationEl}
       {descriptionEl}
     </div>

@@ -9,12 +9,12 @@ export const siteContent = {
   // ── Header / Navigation ─────────────────────────────────
   header: {
     logo: 'StarlinQ',
-    nav: {
-      providers: 'Our Providers',
-      howItWorks: 'How It Works',
-      testimonials: 'Testimonials',
-      contact: 'Contact',
-    },
+    nav: [
+      { label: 'Our Providers', href: '/prestataires' },
+      { label: 'How It Works', href: '#howItWorks' },
+      { label: 'Testimonials', href: '#testimonials' },
+      { label: 'Contact', href: '#contact' },
+    ],
   },
 
   // ── Hero Carousel ───────────────────────────────────────
@@ -70,6 +70,10 @@ export const siteContent = {
   hero: {
     title: 'Connect with Quebec\'s best event professionals',
     description: 'StarlinQ simplifies event planning by connecting you with verified and passionate professionals. Wedding, festival, corporate or private party — we have the experts you need.',
+    cta: {
+      primary: 'Find a vendor',
+      secondary: 'Learn more',
+    },
     images: [
       {
         src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&h=400&fit=crop',
@@ -404,6 +408,7 @@ export const siteContent = {
           'Browse categories or use search to find the perfect vendor. Filter by location, budget and availability.',
         image: '/images/choice.png',
         imageAlt: 'Find a vendor',
+        icon: 'fa:FaMagnifyingGlass',
         reverse: false,
       },
       {
@@ -413,6 +418,7 @@ export const siteContent = {
           'View detailed profiles, portfolios, pricing and authentic client reviews. Compare multiple vendors side by side.',
         image: '/images/compare.png',
         imageAlt: 'Compare vendors',
+        icon: 'fa:FaChartBar',
         reverse: true,
       },
       {
@@ -422,6 +428,7 @@ export const siteContent = {
           'Contact directly or book online with complete security. Protected payment and customer support at every step.',
         image: '/images/book.png',
         imageAlt: 'Book a vendor',
+        icon: 'fa:FaCircleCheck',
         reverse: false,
       },
     ],
@@ -455,7 +462,13 @@ export const siteContent = {
       primary: 'Create my free profile',
       secondary: 'Learn more',
     },
-    image: 'https://images.unsplash.com/photo-1553775282-20af80779df7?w=800&h=800&fit=crop',
+    images: {
+      main1:     'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&h=500&fit=crop',
+      main2:     'https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=600&h=700&fit=crop',
+      floating1: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=300&h=300&fit=crop',
+      floating2: 'https://images.unsplash.com/photo-1530023367847-a683933f4172?w=400&h=300&fit=crop',
+      offerBg:   'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=600&fit=crop',
+    },
   },
 
   // ── Contact Section ─────────────────────────────────────

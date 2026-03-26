@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 export default function BecomeProvider() {
   const { content } = useLanguage();
   const bp = (content as any).becomeProvider;
+  const imgs = bp.images ?? {};
 
   return (
     <section id="becomeProvider" className="py-20 relative overflow-hidden">
@@ -26,7 +27,7 @@ export default function BecomeProvider() {
               <div className="space-y-4">
                 <div className="rounded-2xl overflow-hidden shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&h=500&fit=crop"
+                    src={imgs.main1}
                     alt=""
                     className="w-full h-64 object-cover"
                   />
@@ -35,7 +36,7 @@ export default function BecomeProvider() {
               <div className="space-y-4 mt-8">
                 <div className="rounded-2xl overflow-hidden shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=600&h=700&fit=crop"
+                    src={imgs.main2}
                     alt=""
                     className="w-full h-80 object-cover"
                   />
@@ -50,7 +51,7 @@ export default function BecomeProvider() {
               className="absolute -top-4 -right-4 w-28 h-28 rounded-full overflow-hidden border-4 border-white shadow-lg z-10"
             >
               <img
-                src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=300&h=300&fit=crop"
+                src={imgs.floating1}
                 alt=""
                 className="w-full h-full object-cover"
               />
@@ -63,7 +64,7 @@ export default function BecomeProvider() {
               className="absolute -bottom-8 left-12 w-44 h-32 rounded-2xl overflow-hidden border-4 border-white shadow-2xl z-10"
             >
               <img
-                src="https://images.unsplash.com/photo-1530023367847-a683933f4172?w=400&h=300&fit=crop"
+                src={imgs.floating2}
                 alt=""
                 className="w-full h-full object-cover"
               />
@@ -132,7 +133,7 @@ export default function BecomeProvider() {
               {/* Background image with brand color overlay */}
               <div className="absolute inset-0">
                 <img
-                  src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=600&fit=crop"
+                  src={imgs.offerBg}
                   alt=""
                   className="w-full h-full object-cover"
                 />

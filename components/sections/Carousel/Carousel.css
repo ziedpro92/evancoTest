@@ -266,6 +266,7 @@
   width: 500px;
   height: 3px;
   background-color: #ffffff33;
+  overflow: hidden;
 }
 
 .carousel-progress-foreground {
@@ -408,6 +409,24 @@
 }
 
 /* ==================== RESPONSIVE DESIGN ==================== */
+
+/* Medium screens 769–1399px: 1 thumbnail only, compact progress bar */
+@media (min-width: 769px) and (max-width: 1399px) {
+  .carousel-progress-container {
+    width: 80px;
+    margin-left: 16px;
+  }
+
+  .carousel-progress-background {
+    width: 80px;
+  }
+
+  /* Slide numbers take up too much space at this width — hide them */
+  .carousel-slide-numbers {
+    display: none;
+  }
+}
+
 @media (max-width: 1024px) {
   .carousel-details {
     left: 40px;

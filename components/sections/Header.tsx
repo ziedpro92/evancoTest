@@ -16,12 +16,10 @@ interface HeaderProps {
 export default function Header({ logoVisible }: HeaderProps) {
   const { content, ui } = useLanguage();
 
-  const navLinks = [
-    { name: content.header.nav.providers,    href: '#bestProviders' },
-    { name: content.header.nav.howItWorks,   href: '#howItWorks' },
-    { name: content.header.nav.testimonials, href: '#testimonials' },
-    { name: content.header.nav.contact,      href: '#contact' },
-  ];
+  const navLinks = (content.header.nav as { label: string; href: string }[]).map(n => ({
+    name: n.label,
+    href: n.href,
+  }));
 
   return (
     <motion.header

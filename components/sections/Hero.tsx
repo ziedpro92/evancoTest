@@ -33,11 +33,11 @@ export default function Hero() {
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
               <Button className="bg-PRIMARY hover:bg-PRIMARY-dark text-white rounded-full px-8 py-6 text-base">
-                {ui.hero.primaryButton}
+                {(content.hero as any).cta?.primary ?? ui.hero.primaryButton}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button variant="outline" className="border-PRIMARY text-PRIMARY hover:bg-PRIMARY hover:text-white rounded-full px-8 py-6 text-base">
-                {ui.hero.secondaryButton}
+                {(content.hero as any).cta?.secondary ?? ui.hero.secondaryButton}
               </Button>
             </motion.div>
           </motion.div>

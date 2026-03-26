@@ -40,6 +40,7 @@ function applyColor(hex: string) {
   } catch {
     // ignore storage errors
   }
+  try { window.dispatchEvent(new CustomEvent('primaryColorChanged')); } catch {}
 }
 
 export default function ColorPicker() {
